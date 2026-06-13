@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S M Samiul Hasan – Resume</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#c8cfd9;display:flex;flex-direction:column;align-items:center;padding:24px;gap:16px}
+.no-print{width:794px}
+.upload-bar{background:#0b1120;border-radius:8px;padding:10px 18px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.upload-bar .ub-label{font-size:11px;color:#8ba0b8;font-family:'Fira Code',monospace}
+.upload-bar label{background:#00c8b4;color:#0b1120;padding:6px 14px;border-radius:4px;cursor:pointer;font-size:11px;font-weight:700;font-family:'Fira Code',monospace;white-space:nowrap}
+.upload-bar input[type=file]{display:none}
+.upload-bar .ub-hint{font-size:10px;color:#4a6a80;font-family:'Fira Code',monospace;margin-left:auto}
+.page{width:794px;height:1122px;background:#fff;display:flex;box-shadow:0 20px 60px rgba(0,0,0,.25);overflow:hidden;position:relative;flex-shrink:0}
+
+/* ─── SIDEBAR ─── */
+.sb{width:258px;flex-shrink:0;background:#0b1120;padding:28px 20px;display:flex;flex-direction:column;gap:0;overflow:hidden;position:relative}
+.sb::before{content:'';position:absolute;top:-70px;right:-70px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(0,200,180,.07) 0%,transparent 70%);pointer-events:none}
+.sb::after{content:'';position:absolute;bottom:50px;left:-55px;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(56,189,248,.05) 0%,transparent 70%);pointer-events:none}
+
+/* avatar */
+.av-wrap{display:flex;flex-direction:column;align-items:center;gap:11px;position:relative;z-index:1;margin-bottom:18px}
+.av-ring{width:92px;height:92px;border-radius:50%;border:2.5px solid #00c8b4;padding:3px;flex-shrink:0}
+.av-inner{width:100%;height:100%;border-radius:50%;background:#1e293b;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+#avatarImg{width:100%;height:100%;object-fit:cover;border-radius:50%;display:none;position:absolute;top:0;left:0}
+#avatarInitials{font-size:22px;font-weight:700;color:#00c8b4;letter-spacing:-1px}
+.av-name{font-size:13.5px;font-weight:700;color:#fff;text-align:center;line-height:1.3}
+.av-role{font-size:9.5px;color:#00c8b4;font-family:'Fira Code',monospace;text-align:center;margin-top:3px}
+
+/* divider */
+.sdiv{height:1px;background:linear-gradient(to right,transparent,rgba(0,200,180,.3),transparent);margin:14px -4px;position:relative;z-index:1;flex-shrink:0}
+
+/* sidebar section */
+.ss{position:relative;z-index:1;margin-bottom:14px}
+.ss:last-child{margin-bottom:0}
+.ss-lbl{font-size:8px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:#00c8b4;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.ss-lbl::after{content:'';flex:1;height:1px;background:rgba(0,200,180,.2)}
+
+/* contact */
+.ci{display:flex;align-items:flex-start;gap:7px;margin-bottom:6px}
+.ci-ico{width:15px;flex-shrink:0;margin-top:1px}
+.ci-ico svg{width:12px;height:12px;stroke:#00c8b4;fill:none;stroke-width:1.8}
+.ci-txt{font-size:10px;color:#e2e8f0;line-height:1.5;word-break:break-all}
+.ci-txt a{color:#00c8b4;text-decoration:none}
+
+/* skill bars */
+.skb{margin-bottom:7px}
+.skb-row{display:flex;justify-content:space-between;margin-bottom:3px}
+.skb-n{font-size:10px;color:#e2e8f0}
+.skb-p{font-size:9px;color:#8ba0b8;font-family:'Fira Code',monospace}
+.skb-track{height:3px;background:rgba(255,255,255,.07);border-radius:2px;overflow:hidden}
+.skb-fill{height:100%;background:linear-gradient(to right,#00c8b4,#38bdf8);border-radius:2px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+
+/* tags */
+.tags{display:flex;flex-wrap:wrap;gap:3.5px}
+.tag{font-size:9px;padding:2px 6px;background:rgba(0,200,180,.09);border:1px solid rgba(0,200,180,.22);border-radius:3px;color:#00c8b4;font-family:'Fira Code',monospace;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+
+/* lang */
+.li{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.li-n{font-size:10px;color:#e2e8f0}
+.li-l{font-size:8.5px;padding:2px 6px;background:rgba(0,200,180,.1);border-radius:10px;color:#00c8b4;font-family:'Fira Code',monospace;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+
+/* strengths */
+.soft-list{list-style:none}
+.soft-list li{font-size:10px;color:#e2e8f0;padding:3px 0 3px 12px;position:relative;border-bottom:1px solid rgba(255,255,255,.04)}
+.soft-list li::before{content:'▸';position:absolute;left:0;color:#00c8b4;font-size:9px;top:4px}
+
+/* stats grid */
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px}
+.stat-c{background:rgba(0,200,180,.08);border:1px solid rgba(0,200,180,.18);border-radius:5px;padding:7px 8px;text-align:center;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.stat-n{font-size:20px;font-weight:700;color:#00c8b4;font-family:'Fira Code',monospace}
+.stat-l{font-size:8.5px;color:#8ba0b8;margin-top:1px}
+
+/* platform */
+.plat{display:flex;align-items:center;gap:7px;margin-bottom:5px;padding:5px 7px;background:rgba(255,255,255,.03);border-radius:4px;border-left:2px solid #00c8b4;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.plat-n{font-size:10px;color:#e2e8f0}
+.plat-b{margin-left:auto;font-size:8px;color:#00c8b4;background:rgba(0,200,180,.1);padding:1.5px 6px;border-radius:3px;font-family:'Fira Code',monospace;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+
+/* quote */
+.q-block{border-left:2px solid #00c8b4;padding-left:10px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.q-txt{font-size:9.5px;color:#8ba0b8;line-height:1.65;font-style:italic}
+.q-auth{font-size:8.5px;color:#00c8b4;margin-top:4px}
+
+/* ─── MAIN ─── */
+.mn{flex:1;display:flex;flex-direction:column;overflow:hidden}
+
+/* header */
+.mh{background:#f8fafc;padding:22px 26px 18px;border-bottom:3px solid #00c8b4;position:relative;overflow:hidden;flex-shrink:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.mh::after{content:'</>';position:absolute;right:16px;bottom:-10px;font-family:'Fira Code',monospace;font-size:66px;font-weight:700;color:rgba(0,200,180,.05);letter-spacing:-3px;line-height:1;pointer-events:none}
+.mh-name{font-size:23px;font-weight:800;color:#0f172a;letter-spacing:-.5px;line-height:1.1}
+.mh-name span{color:#00c8b4}
+.mh-sub{font-size:10.5px;color:#475569;font-family:'Fira Code',monospace;margin-top:4px}
+.mh-sub em{color:#38bdf8;font-style:normal;font-weight:500}
+.mh-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:9px}
+.mh-tag{font-size:9px;padding:2.5px 9px;background:rgba(0,200,180,.1);border:1px solid rgba(0,200,180,.28);border-radius:20px;color:#0f7a70;font-weight:600;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+
+/* content */
+.mc{padding:16px 26px;display:flex;flex-direction:column;gap:15px;flex:1;overflow:hidden}
+
+/* section title */
+.sec-t{font-size:9px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:#00c8b4;padding-bottom:5px;margin-bottom:9px;border-bottom:1px solid #e2e8f0;display:flex;align-items:center;gap:5px}
+.sec-t svg{width:11px;height:11px;stroke:#00c8b4;fill:none;stroke-width:1.8;flex-shrink:0}
+
+/* summary */
+.summ{font-size:11px;color:#475569;line-height:1.7;border-left:3px solid #00c8b4;padding-left:11px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+
+/* timeline */
+.tl{display:flex;flex-direction:column;gap:10px}
+.tli{display:flex;gap:10px}
+.tli-l{display:flex;flex-direction:column;align-items:center;width:26px;flex-shrink:0}
+.dot{width:9px;height:9px;border-radius:50%;background:#00c8b4;outline:1.5px solid #00c8b4;border:2px solid #fff;flex-shrink:0;margin-top:2px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.dot.b{background:#38bdf8;outline-color:#38bdf8}
+.dot.p{background:#a78bfa;outline-color:#a78bfa}
+.tli-line{width:1px;flex:1;min-height:6px;background:linear-gradient(to bottom,#00c8b4,rgba(0,200,180,.1));margin-top:2px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.tli-b{flex:1}
+.tli-h{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1px}
+.tli-title{font-size:11px;font-weight:600;color:#0f172a;line-height:1.3;flex:1}
+.tli-date{font-size:8.5px;color:#fff;background:#0f172a;padding:1.5px 7px;border-radius:10px;font-family:'Fira Code',monospace;white-space:nowrap;flex-shrink:0;margin-left:5px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.tli-date.now{background:#00c8b4;color:#0b1120;font-weight:600}
+.tli-date.up{background:#38bdf8;color:#fff}
+.tli-inst{font-size:9.5px;color:#00c8b4;font-weight:500;margin-bottom:2px}
+.tli-desc{font-size:10px;color:#475569;line-height:1.55}
+.tli-techs{display:flex;flex-wrap:wrap;gap:3px;margin-top:3px}
+.tc{font-size:8.5px;padding:1.5px 5px;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:3px;color:#64748b;font-family:'Fira Code',monospace}
+
+/* project grids */
+.pg2{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.pg3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px}
+.pc{border:1px solid #e2e8f0;border-radius:5px;padding:9px 11px;position:relative;overflow:hidden}
+.pc::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:linear-gradient(to bottom,#00c8b4,#38bdf8);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.pc-name{font-size:10.5px;font-weight:600;color:#0f172a;margin-bottom:2px}
+.pc-sub{font-size:9.5px;color:#475569;line-height:1.5;margin-bottom:5px}
+.pc-tags{display:flex;flex-wrap:wrap;gap:3px}
+.pt{font-size:8px;padding:1.5px 5px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:2px;color:#64748b;font-family:'Fira Code',monospace}
+
+/* services */
+.svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.svc{border:1px solid #e2e8f0;border-radius:5px;padding:10px 12px;position:relative;overflow:hidden}
+.svc::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,#00c8b4,#38bdf8);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.svc-n{font-size:11px;font-weight:600;color:#0f172a;margin-bottom:3px}
+.svc-d{font-size:10px;color:#475569;line-height:1.6}
+.svc-tags{display:flex;flex-wrap:wrap;gap:3px;margin-top:5px}
+
+/* closing */
+.closing{background:#0b1120;border-radius:6px;padding:12px 16px;display:flex;align-items:center;gap:14px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.closing-t{font-size:11.5px;font-weight:600;color:#fff;margin-bottom:2px}
+.closing-s{font-size:9.5px;color:#8ba0b8;line-height:1.5}
+.closing-badge{background:#00c8b4;color:#0b1120;font-size:9px;padding:5px 12px;border-radius:4px;font-weight:700;font-family:'Fira Code',monospace;white-space:nowrap;flex-shrink:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+
+/* page 2 mini header */
+.mh2{background:#f8fafc;padding:14px 26px 12px;border-bottom:2px solid #00c8b4;flex-shrink:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.mh2-n{font-size:16px;font-weight:700;color:#0f172a}
+.mh2-n span{color:#00c8b4}
+.mh2-sub{font-size:9.5px;color:#8ba0b8;font-family:'Fira Code',monospace;margin-top:2px}
+
+@media print{
+  @page{size:A4;margin:0}
+  body{background:#fff;padding:0;gap:0}
+  .no-print{display:none!important}
+  .page{box-shadow:none;page-break-after:always}
+  .page:last-child{page-break-after:avoid}
+  .sb,.mh,.mh2,.mh-tag,.tag,.li-l,.stat-c,.plat,.plat-b,.q-block,.dot,.tli-date,.tli-line,.skb-fill,.pc::before,.svc::before,.closing,.closing-badge,.mh-sub em,.summ{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+
+<!-- Upload Bar -->
+<div class="no-print">
+  <div class="upload-bar">
+    <span class="ub-label">📸 Photo add করো:</span>
+    <label for="photoInput">+ Upload Photo</label>
+    <input type="file" id="photoInput" accept="image/*">
+    <span class="ub-hint">তারপর Ctrl+P → Save as PDF ✓</span>
+  </div>
+</div>
+
+<!-- ════════════════════════════ PAGE 1 ════════════════════════════ -->
+<div class="page">
+
+  <aside class="sb" style="-webkit-print-color-adjust:exact;print-color-adjust:exact">
+
+    <div class="av-wrap">
+      <div class="av-ring">
+        <div class="av-inner">
+          <img id="avatarImg" src="" alt="Samiul Photo">
+          <span id="avatarInitials">SH</span>
+        </div>
+      </div>
+      <div>
+        <div class="av-name">S M Samiul Hasan</div>
+        <div class="av-role">$ full-stack developer</div>
+      </div>
+    </div>
+
+    <div class="sdiv"></div>
+
+    <div class="ss">
+      <div class="ss-lbl">Contact</div>
+      <div class="ci">
+        <div class="ci-ico"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5" stroke="none" fill="#00c8b4"/></svg></div>
+        <div class="ci-txt">Rangpur, Bangladesh</div>
+      </div>
+      <div class="ci">
+        <div class="ci-ico"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg></div>
+        <div class="ci-txt"><a href="mailto:samiul@jamibd.com">samiul@jamibd.com</a></div>
+      </div>
+      <div class="ci">
+        <div class="ci-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+        <div class="ci-txt"><a href="https://samiul.jamibd.com">samiul.jamibd.com</a></div>
+      </div>
+      <div class="ci">
+        <div class="ci-ico"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7H10v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
+        <div class="ci-txt"><a href="https://linkedin.com/in/samiulhasan-dev">in/samiulhasan-dev</a></div>
+      </div>
+      <div class="ci">
+        <div class="ci-ico"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></div>
+        <div class="ci-txt"><a href="https://github.com/smsamiuldev">github.com/smsamiuldev</a></div>
+      </div>
+    </div>
+
+    <div class="sdiv"></div>
+
+    <div class="ss">
+      <div class="ss-lbl">Core Skills</div>
+      <div class="skb"><div class="skb-row"><span class="skb-n">React.js / Next.js</span><span class="skb-p">90%</span></div><div class="skb-track"><div class="skb-fill" style="width:90%"></div></div></div>
+      <div class="skb"><div class="skb-row"><span class="skb-n">Tailwind CSS</span><span class="skb-p">92%</span></div><div class="skb-track"><div class="skb-fill" style="width:92%"></div></div></div>
+      <div class="skb"><div class="skb-row"><span class="skb-n">Node.js / Express.js</span><span class="skb-p">85%</span></div><div class="skb-track"><div class="skb-fill" style="width:85%"></div></div></div>
+      <div class="skb"><div class="skb-row"><span class="skb-n">MongoDB / PostgreSQL</span><span class="skb-p">80%</span></div><div class="skb-track"><div class="skb-fill" style="width:80%"></div></div></div>
+      <div class="skb"><div class="skb-row"><span class="skb-n">Python / Scraping</span><span class="skb-p">80%</span></div><div class="skb-track"><div class="skb-fill" style="width:80%"></div></div></div>
+      <div class="skb"><div class="skb-row"><span class="skb-n">Flutter / Dart</span><span class="skb-p">65%</span></div><div class="skb-track"><div class="skb-fill" style="width:65%"></div></div></div>
+      <div class="skb"><div class="skb-row"><span class="skb-n">Docker / VPS / DevOps</span><span class="skb-p">55%</span></div><div class="skb-track"><div class="skb-fill" style="width:55%"></div></div></div>
+    </div>
+
+    <div class="sdiv"></div>
+
+    <div class="ss">
+      <div class="ss-lbl">Tools & Workflow</div>
+      <div class="tags">
+        <span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">VS Code</span><span class="tag">Postman</span><span class="tag">Figma</span><span class="tag">Playwright</span><span class="tag">Selenium</span><span class="tag">Vercel</span><span class="tag">Cloudflare</span><span class="tag">Docker</span><span class="tag">Socket.io</span><span class="tag">NextAuth</span><span class="tag">Firebase</span><span class="tag">cPanel</span><span class="tag">PyCharm</span>
+      </div>
+    </div>
+
+    <div class="sdiv"></div>
+
+    <div class="ss">
+      <div class="ss-lbl">Languages</div>
+      <div class="li"><span class="li-n">Bengali</span><span class="li-l">Native</span></div>
+      <div class="li"><span class="li-n">English</span><span class="li-l">Professional</span></div>
+    </div>
+
+    <div class="sdiv"></div>
+
+    <div class="ss">
+      <div class="ss-lbl">Strengths</div>
+      <ul class="soft-list">
+        <li>Real-World Bug Fixing & Debugging</li>
+        <li>Self-Learning & Fast Adaptation</li>
+        <li>Remote Work Discipline</li>
+        <li>Deadline-Driven Mindset</li>
+        <li>Team Collaboration</li>
+      </ul>
+    </div>
+
+  </aside>
+
+  <main class="mn">
+    <div class="mh">
+      <div class="mh-name">S M <span>Samiul</span> Hasan</div>
+      <div class="mh-sub"><em>Full-Stack</em> Web & App Developer &nbsp;·&nbsp; Rangpur, Bangladesh &nbsp;·&nbsp; <em>Open to Remote Work</em></div>
+      <div class="mh-tags">
+        <span class="mh-tag">Web Development</span>
+        <span class="mh-tag">App Development</span>
+        <span class="mh-tag">Web Scraping</span>
+        <span class="mh-tag">Bot Development</span>
+        <span class="mh-tag">Bug Fixing</span>
+        <span class="mh-tag">Remote Ready</span>
+      </div>
+    </div>
+
+    <div class="mc">
+
+      <div>
+        <div class="sec-t">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg>
+          Professional Summary
+        </div>
+        <p class="summ">Self-taught Full-Stack Developer specializing in MERN stack, Next.js, and Python automation. Proven track record of delivering production-ready applications — from cloud e-procurement systems to real-time B2B platforms. Diploma student in Computer Engineering with a disciplined remote-work ethic, strong debugging mindset, and a passion for building software that solves real-world problems efficiently.</p>
+      </div>
+
+      <div>
+        <div class="sec-t">
+          <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          Education & Training
+        </div>
+        <div class="tl">
+
+          <div class="tli">
+            <div class="tli-l"><div class="dot"></div><div class="tli-line"></div></div>
+            <div class="tli-b">
+              <div class="tli-h"><div class="tli-title">Diploma in Computer Engineering</div><span class="tli-date now">2024 – 2028</span></div>
+              <div class="tli-inst">Polytechnic Institute, Bangladesh</div>
+              <div class="tli-desc">Data Structures, Algorithms, OOP, DBMS & Computer Networking — building a strong CS foundation alongside practical development.</div>
+            </div>
+          </div>
+
+          <div class="tli">
+            <div class="tli-l"><div class="dot b"></div><div class="tli-line"></div></div>
+            <div class="tli-b">
+              <div class="tli-h"><div class="tli-title">Next Level Web Development — Level 2</div><span class="tli-date up">Upcoming</span></div>
+              <div class="tli-inst">Programming Hero (Mid 2026)</div>
+              <div class="tli-desc">PostgreSQL, Prisma ORM, Next.js, Docker, Nginx, AWS & Golang — enterprise-grade full-stack engineering curriculum.</div>
+              <div class="tli-techs"><span class="tc">PostgreSQL</span><span class="tc">Prisma</span><span class="tc">Docker</span><span class="tc">AWS</span><span class="tc">Golang</span></div>
+            </div>
+          </div>
+
+          <div class="tli">
+            <div class="tli-l"><div class="dot"></div><div class="tli-line"></div></div>
+            <div class="tli-b">
+              <div class="tli-h"><div class="tli-title">Complete Web Development — Level 1 ✓</div><span class="tli-date">2025 – 2026</span></div>
+              <div class="tli-inst">Programming Hero (Certified)</div>
+              <div class="tli-desc">Intensive MERN stack bootcamp — React.js, Tailwind CSS, secure Firebase auth, Node.js, Express.js & MongoDB backend APIs.</div>
+              <div class="tli-techs"><span class="tc">React.js</span><span class="tc">Node.js</span><span class="tc">MongoDB</span><span class="tc">Firebase</span><span class="tc">Tailwind</span></div>
+            </div>
+          </div>
+
+          <div class="tli">
+            <div class="tli-l"><div class="dot b"></div><div class="tli-line"></div></div>
+            <div class="tli-b">
+              <div class="tli-h"><div class="tli-title">Frontend Web Design ✓</div><span class="tli-date">2024 – 2025</span></div>
+              <div class="tli-inst">Inspired IT Institute, Rangpur (Certified)</div>
+              <div class="tli-desc">HTML5, CSS3, Bootstrap & JavaScript — Figma/PSD to pixel-perfect responsive websites.</div>
+            </div>
+          </div>
+
+          <div class="tli">
+            <div class="tli-l"><div class="dot p"></div></div>
+            <div class="tli-b">
+              <div class="tli-h"><div class="tli-title">Graphic Design & Visual Communication</div><span class="tli-date">2023 – 2024</span></div>
+              <div class="tli-inst">Self-directed — Canva & Design Fundamentals</div>
+              <div class="tli-desc">Color theory, layout & branding skills that now directly enhance my UI/UX design decisions.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div>
+        <div class="sec-t">
+          <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          Selected Projects
+        </div>
+        <div class="pg2">
+          <div class="pc">
+            <div class="pc-name">Ezbid Cloud — E-Procurement</div>
+            <div class="pc-sub">Cloud-native tender management with automated RFQ, vendor tracking & live auction bidding engine.</div>
+            <div class="pc-tags"><span class="pt">HTML</span><span class="pt">CSS3</span><span class="pt">JavaScript</span><span class="pt">PHP</span><span class="pt">MySQL</span><span class="pt">Docker</span></div>
+          </div>
+          <div class="pc">
+            <div class="pc-name">North SME — B2B Platform</div>
+            <div class="pc-sub">LinkedIn-style local business platform for Rangpur & North BD with real-time feed & chat system.</div>
+            <div class="pc-tags"><span class="pt">Next.js</span><span class="pt">Socket.io</span><span class="pt">MongoDB</span><span class="pt">NextAuth</span></div>
+          </div>
+          <div class="pc">
+            <div class="pc-name">eTuitionBD — Tuition Platform</div>
+            <div class="pc-sub">Dynamic student-tutor matching with interactive dashboard, advanced filtering & REST API backend.</div>
+            <div class="pc-tags"><span class="pt">React.js</span><span class="pt">Tailwind</span><span class="pt">Node.js</span><span class="pt">REST API</span></div>
+          </div>
+          <div class="pc">
+            <div class="pc-name">Jamibd — AI E-Commerce</div>
+            <div class="pc-sub">Scalable corporate platform with real-time systems, AI product recommendations & enterprise backend.</div>
+            <div class="pc-tags"><span class="pt">React.js</span><span class="pt">Node.js</span><span class="pt">MongoDB</span><span class="pt">AI Integration</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<!-- ════════════════════════════ PAGE 2 ════════════════════════════ -->
+<div class="page">
+
+  <aside class="sb" style="-webkit-print-color-adjust:exact;print-color-adjust:exact">
+
+    <div style="text-align:center;margin-bottom:14px;position:relative;z-index:1">
+      <div style="font-size:13px;font-weight:700;color:#fff">S M Samiul Hasan</div>
+      <div style="font-size:9px;color:#00c8b4;font-family:'Fira Code',monospace;margin-top:2px">// page 02 of 02</div>
+    </div>
+
+    <div class="sdiv"></div>
+
+    <div class="ss">
+      <div class="ss-lbl">By the Numbers</div>
+      <div class="stat-grid">
+        <div class="stat-c"><div class="stat-n">9+</div><div class="stat-l">Projects Built</div></div>
+        <div class="stat-c"><div class="stat-n">3+</div><div class="stat-l">Years Learning</div></div>
+        <div class="stat-c"><div class="stat-n">10+</div><div class="stat-l">Technologies</div></div>
+        <div class="stat-c"><div class="stat-n">2</div><div class="stat-l">Certificates</div></div>
+      </div>
+    </div>
+
+    <div class="sdiv"></div>
+
+    <div class="ss">
+      <div class="ss-lbl">Available On</div>
+      <div class="plat"><span style="width:6px;height:6px;border-radius:50%;background:#00c8b4;flex-shrink:0;display:inline-block"></span><span class="plat-n">Fiverr</span><span class="plat-b">Active</span></div>
+      <div class="plat"><span style="width:6px;height:6px;border-radius:50%;background:#00c8b4;flex-shrink:0;display:inline-block"></span><span class="plat-n">Upwork</span><span class="plat-b">Active</span></div>
+      <div class="plat"><span style="width:6px;height:6px;border-radius:50%;background:#00c8b4;flex-shrink:0;display:inline-block"></span><span class="plat-n">Contra</span><span class="plat-b">Active</span></div>
+      <div class="plat"><span style="width:6px;height:6px;border-radius:50%;background:#38bdf8;flex-shrink:0;display:inline-block"></span><span class="plat-n">LinkedIn</span><span class="plat-b" style="color:#38bdf8;background:rgba(56,189,248,.1)">Open</span></div>
+    </div>
+
+    <div class="sdiv"></div>
+
+    <div class="ss">
+      <div class="ss-lbl">Currently Mastering</div>
+      <ul class="soft-list">
+        <li>Next.js — App Router & SSR</li>
+        <li>PostgreSQL & Prisma ORM</li>
+        <li>Flutter — Cross-platform UI</li>
+        <li>Docker & AWS deployment</li>
+        <li>Golang — Backend performance</li>
+      </ul>
+    </div>
+
+    <div class="sdiv"></div>
+
+    <div class="ss">
+      <div class="ss-lbl">What I Build</div>
+      <ul class="soft-list">
+        <li>Full-Stack Web Applications</li>
+        <li>REST APIs & Backend Systems</li>
+        <li>Landing Pages & Dashboards</li>
+        <li>Data Scrapers & Pipelines</li>
+        <li>WhatsApp / Telegram Bots</li>
+        <li>Cross-Platform Mobile Apps</li>
+      </ul>
+    </div>
+
+    <div class="sdiv"></div>
+
+    <div class="ss">
+      <div class="ss-lbl">AI Tools I Use</div>
+      <div class="tags" style="gap:3px">
+        <span class="tag">ChatGPT</span><span class="tag">Gemini</span><span class="tag">Copilot</span><span class="tag">v0.dev</span>
+      </div>
+    </div>
+
+    <div class="sdiv"></div>
+
+    <div class="ss">
+      <div class="ss-lbl">Philosophy</div>
+      <div class="q-block">
+        <div class="q-txt">"Building scalable solutions that make life easier — one commit at a time. Every struggle was worth it."</div>
+        <div class="q-auth">— S M Samiul Hasan</div>
+      </div>
+    </div>
+
+  </aside>
+
+  <main class="mn">
+
+    <div class="mh2">
+      <div class="mh2-n">Projects <span>&</span> Services</div>
+      <div class="mh2-sub">$ 9 projects deployed · 4 service areas · remote-first · deadline-driven</div>
+    </div>
+
+    <div class="mc">
+
+      <!-- Remaining projects -->
+      <div>
+        <div class="sec-t">
+          <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          Complete Project Portfolio
+        </div>
+        <div class="pg3">
+          <div class="pc">
+            <div class="pc-name">ToyTopia — E-Commerce</div>
+            <div class="pc-sub">CRUD toy marketplace with Firebase auth, category filtering & product management.</div>
+            <div class="pc-tags"><span class="pt">React.js</span><span class="pt">Firebase</span><span class="pt">MongoDB</span><span class="pt">Express</span></div>
+          </div>
+          <div class="pc">
+            <div class="pc-name">Career Hub — Job Portal</div>
+            <div class="pc-sub">SPA with dynamic routing, Recharts analytics & localStorage application tracking.</div>
+            <div class="pc-tags"><span class="pt">React.js</span><span class="pt">Recharts</span><span class="pt">React Router</span></div>
+          </div>
+          <div class="pc">
+            <div class="pc-name">Ticket Selection App</div>
+            <div class="pc-sub">Interactive dashboard for item selection with budget constraints & live balance calculation.</div>
+            <div class="pc-tags"><span class="pt">React.js</span><span class="pt">JS ES6</span><span class="pt">DaisyUI</span></div>
+          </div>
+          <div class="pc">
+            <div class="pc-name">Green Earth — Campaign</div>
+            <div class="pc-sub">Environmental landing page with shopping cart, donation form & impact statistics.</div>
+            <div class="pc-tags"><span class="pt">HTML5</span><span class="pt">CSS3</span><span class="pt">JS ES6</span><span class="pt">Netlify</span></div>
+          </div>
+          <div class="pc">
+            <div class="pc-name">Dark UI Agency Template</div>
+            <div class="pc-sub">Dark-themed agency landing with stats dashboard, testimonials & contact form.</div>
+            <div class="pc-tags"><span class="pt">HTML5</span><span class="pt">CSS3</span><span class="pt">Flexbox</span></div>
+          </div>
+          <div class="pc">
+            <div class="pc-name">Flower Shop — Landing Page</div>
+            <div class="pc-sub">Semantic HTML5/CSS3 florist landing with product grid, banners & responsive layout.</div>
+            <div class="pc-tags"><span class="pt">HTML5</span><span class="pt">CSS3</span><span class="pt">GitHub Pages</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Services -->
+      <div>
+        <div class="sec-t">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          Services I Offer
+        </div>
+        <div class="svc-grid">
+          <div class="svc">
+            <div class="svc-n">Full-Stack Web Development</div>
+            <div class="svc-d">End-to-end web apps — React/Next.js frontend, Node.js/Express backend, MongoDB or PostgreSQL, secure auth & cloud deployment.</div>
+            <div class="svc-tags"><span class="pt">React.js</span><span class="pt">Next.js</span><span class="pt">Node.js</span><span class="pt">MongoDB</span></div>
+          </div>
+          <div class="svc">
+            <div class="svc-n">Web Scraping & Automation</div>
+            <div class="svc-d">Python scrapers via Playwright or Selenium for data extraction, lead generation, price monitoring & automated reporting pipelines.</div>
+            <div class="svc-tags"><span class="pt">Python</span><span class="pt">Playwright</span><span class="pt">Selenium</span></div>
+          </div>
+          <div class="svc">
+            <div class="svc-n">Bug Fixing & Code Rescue</div>
+            <div class="svc-d">Deep debugging of broken web or mobile apps — architecture errors, performance issues, UI bugs, API failures & deployment fixes.</div>
+            <div class="svc-tags"><span class="pt">Debugging</span><span class="pt">Optimization</span><span class="pt">DevOps</span></div>
+          </div>
+          <div class="svc">
+            <div class="svc-n">Bot Development</div>
+            <div class="svc-d">Custom WhatsApp & Telegram bots for business automation — lead capture, customer support, notifications & workflow integration.</div>
+            <div class="svc-tags"><span class="pt">Python</span><span class="pt">WhatsApp API</span><span class="pt">Telegram Bot</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Closing CTA -->
+      <div class="closing">
+        <div style="flex:1">
+          <div class="closing-t">Let's Build Something Great Together!</div>
+          <div class="closing-s">Available for remote freelance contracts, long-term collaborations & full-time remote roles · Fast response · Quality-first mindset.</div>
+          <div style="font-size:9px;color:#4a6a80;margin-top:5px;font-family:'Fira Code',monospace">samiul.jamibd.com &nbsp;·&nbsp; linkedin.com/in/samiulhasan-dev &nbsp;·&nbsp; samiul@jamibd.com</div>
+        </div>
+        <div class="closing-badge">Open to Work</div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script>
+const pi=document.getElementById('photoInput');
+const ai=document.getElementById('avatarImg');
+const an=document.getElementById('avatarInitials');
+if(pi){pi.addEventListener('change',function(e){
+  const f=e.target.files[0];if(!f)return;
+  const r=new FileReader();
+  r.onload=function(ev){ai.src=ev.target.result;ai.style.display='block';an.style.display='none'};
+  r.readAsDataURL(f);
+});}
+</script>
+</body>
+</html>
